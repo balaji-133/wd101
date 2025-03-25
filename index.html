@@ -78,7 +78,7 @@
       <input type="date" id="dob" name="dob" required />
 
       <label>
-        <input type="checkbox" id="terms" required /> Accept Terms & Conditions
+        <input type="checkbox" id="terms" /> Accept Terms & Conditions
       </label>
 
       <button type="submit">Submit</button>
@@ -98,29 +98,8 @@
       <tbody></tbody>
     </table>
   </div>
-
-  <script>
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const dob = document.getElementById('dob').value;
-      const termsAccepted = document.getElementById('terms').checked;
-
-      if (!name || !email || !password || !dob || !termsAccepted) {
-        alert('Please fill all fields and accept the terms.');
-        return;
-      }
-
-      const table = document.getElementById('entriesTable').querySelector('tbody');
-      const newRow = table.insertRow();
-
-      newRow.innerHTML = `<td>${name}</td><td>${email}</td><td>${password}</td><td>${dob}</td><td>${termsAccepted ? 'true' : 'false'}</td>`;
-
-      this.reset();
-    });
-  </script>
+    <script src="index.js"></script>
 </body>
 </html>
+
+
