@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const age = isAgeValid(dob);
-    if (age < 18 || age > 55) {
+    if (age < 17 || age > 56) {
       alert('You must be between 18 and 55 years old to register.');
       return;
     }
