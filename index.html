@@ -7,8 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
         }
         h1 {
             color: #333;
@@ -17,7 +22,8 @@
             background: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
-            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
             max-width: 500px;
         }
         .form-group {
@@ -33,7 +39,8 @@
         input[type="password"],
         input[type="date"] {
             padding: 8px;
-            width: 200px;
+            width: 100%;
+            box-sizing: border-box;
         }
         input[type="checkbox"] {
             margin-left: 120px;
@@ -45,6 +52,7 @@
             padding: 10px 15px;
             margin-top: 10px;
             cursor: pointer;
+            width: 100%;
         }
         button:hover {
             background: #45a049;
