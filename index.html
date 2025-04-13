@@ -1,103 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registration Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-      margin: 0;
-      background-color: #f9f9f9;
-    }
-    .container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 400px;
-    }
-    form label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    table {
-      margin-top: 20px;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"] {
+            padding: 8px;
+            width: 200px;
+        }
+        input[type="checkbox"] {
+            margin-left: 120px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-left: 120px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <form id="registrationForm">
-      <h1>Registration Form</h1>
-
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required minlength="6" />
-
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="dob" name="dob" required />
-
-      <label>
-        <input type="checkbox" id="terms" /> Accept Terms & Conditions
-      </label>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <h2>Entries</h2>
-    <table id="entriesTable" border="1">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Dob</th>
-          <th>Accepted terms?</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+                <div id="dobError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <input type="checkbox" id="acceptTerms">
+                <label for="acceptTerms" style="width: auto;">Accept Terms & Conditions</label>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <h1>Entries</h1>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>dob</th>
+                <th>accepted terms?</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- Table rows will be added here dynamically -->
+        </tbody>
     </table>
-  </div>
+
     <script src="index.js"></script>
 </body>
 </html>
