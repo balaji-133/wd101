@@ -32,12 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             dobError.textContent = '';
         }
         
-        // Validate terms checkbox
-        if (!document.getElementById('acceptTerms').checked) {
-            alert('You must accept the terms and conditions');
-            return;
-        }
-        
         // Get form values
         const name = document.getElementById('name').value;
         const email = emailInput.value;
