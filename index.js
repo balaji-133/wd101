@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Load saved data when page loads
     loadSavedData();
-    
+
     // Form submission handler
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add to table
         addUserToTable(user);
         
-        // Reset form
-        this.reset();
+        // Do not reset the form to retain the entered values
+        // this.reset();
     });
     
     // Function to save user to localStorage
