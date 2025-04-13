@@ -6,12 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Validate email format
+        const emailInput = document.getElementById('email');
+        if (!emailInput.checkValidity()) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
         // Validate age (18-55 years)
         const dobInput = document.getElementById('dob');
         const dobError = document.getElementById('dobError');
         const dob = new Date(dobInput.value);
         const today = new Date();
-        const age = today.getFullYear() - dob.getFullYear();
+        let age = today.getFullYear() - dob.getFullYear();
         const monthDiff = today.getMonth() - dob.getMonth();
         
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
@@ -25,11 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
             dobError.textContent = '';
         }
         
+        // Validate terms checkbox
+        if (!document.getElementById('acceptTerms').checked) {
+            alert('You must accept the terms and conditions');
+            return;
+        }
+        
         // Get form values
         const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+        const email = emailInput.value;
         const password = document.getElementById('password').value;
-        const dobValue = formatDate(dobInput.value);
+        const dobValue = dobInput.value;
         const acceptedTerms = document.getElementById('acceptTerms').checked;
         
         // Create user object
@@ -50,15 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset form
         this.reset();
     });
-    
-    // Function to format date as DD/MM/YYYY
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
-    }
     
     // Function to save user to localStorage
     function saveUser(user) {
